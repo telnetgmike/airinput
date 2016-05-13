@@ -16,7 +16,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/telnetgmike/snappy-go/snappy"
+	"github.com/golang/snappy"
 
 	"github.com/codeskyblue/pngdiff"
 	"github.com/telnetgmike/airinput/go-airinput"
