@@ -23,6 +23,14 @@ import (
 )
 
 func init() {
+	defer func() {
+	if err := recover(); err != nil {
+	    fmt.Println("HERE")
+	    fmt.Println(err)
+	    fmt.Println(0)
+	}
+    }()
+    
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
 		w.Header().Set("Content-Type", "text/html")
 		io.WriteString(w, `<html>
@@ -186,7 +194,7 @@ func init() {
 			if !first {
 				img, _ := airinput.Snapshot()
 				patch, _ := pngdiff.Diff(cimg, img)
-				bytes, _ = snappy.Encode(nil, patch.Pix)
+				bytes= snappy.Encode(nil, patch.Pix)
 				cimg = img
 				log.Println("IN-LEN", len(bytes))
 			} else {
@@ -194,7 +202,7 @@ func init() {
 				// Write width and height
 				bwrite(bufrw, uint32(cimg.Rect.Max.X))
 				bwrite(bufrw, uint32(cimg.Rect.Max.Y))
-				bytes, _ = snappy.Encode(nil, cimg.Pix)
+				bytes = snappy.Encode(nil, cimg.Pix)
 				log.Println("LEN", len(bytes))
 			}
 			err := binary.Write(bufrw, binary.LittleEndian, uint32(len(bytes)))
@@ -230,7 +238,7 @@ func init() {
 		if imold, exists := cache.Get(md5old); exists {
 			w.Header().Set("X-Patch", "true")
 			patch, _ := pngdiff.Diff(imold, img)
-			bytes, err := snappy.Encode(nil, patch.Pix)
+			bytes:= snappy.Encode(nil, patch.Pix)
 			if err != nil {
 				log.Println(err)
 			}
@@ -238,7 +246,7 @@ func init() {
 			//png.Encode(w, patch)
 		} else {
 			w.Header().Set("X-Patch", "false")
-			bytes, err := snappy.Encode(nil, img.Pix)
+			bytes:= snappy.Encode(nil, img.Pix)
 			if err != nil {
 				log.Println(err)
 			}
