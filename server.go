@@ -239,17 +239,17 @@ func init() {
 			w.Header().Set("X-Patch", "true")
 			patch, _ := pngdiff.Diff(imold, img)
 			bytes:= snappy.Encode(nil, patch.Pix)
-			if err != nil {
-				log.Println(err)
-			}
+			// if err != nil {
+			// 	log.Println(err)
+			// }
 			w.Write(bytes)
 			//png.Encode(w, patch)
 		} else {
 			w.Header().Set("X-Patch", "false")
 			bytes:= snappy.Encode(nil, img.Pix)
-			if err != nil {
-				log.Println(err)
-			}
+			// if err != nil {
+			// 	log.Println(err)
+			// }
 			w.Write(bytes)
 			//png.Encode(w, img)
 		}
