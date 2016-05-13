@@ -19,7 +19,7 @@ import (
 	"code.google.com/p/snappy-go/snappy"
 
 	"github.com/codeskyblue/pngdiff"
-	"github.com/netease/airinput/go-airinput"
+	"github.com/telnetgmike/airinput/go-airinput"
 )
 
 func init() {

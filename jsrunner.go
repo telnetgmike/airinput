@@ -6,7 +6,7 @@ import (
 	"os/exec"
 	"time"
 
-	"github.com/netease/airinput/go-airinput"
+	"github.com/telnetgmike/airinput/go-airinput"
 	"github.com/robertkrimen/otto"
 	"github.com/shirou/gopsutil/cpu"
 )
