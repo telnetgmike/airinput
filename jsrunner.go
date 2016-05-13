@@ -91,7 +91,7 @@ func init() {
 	vm.Set("cpuPercent", func(call otto.FunctionCall) otto.Value {
 		msec, _ := call.Argument(0).ToInteger()
 		percpu, _ := call.Argument(1).ToBoolean()
-		cpup, _ := cpu.CPUPercent(time.Duration(msec)*time.Millisecond, percpu)
+		cpup, _ := cpu.Percent(time.Duration(msec)*time.Millisecond, percpu)
 		result, _ := vm.ToValue(cpup)
 		return result
 	})
