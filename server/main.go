@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"code.google.com/p/snappy-go/snappy"
+	"github.com/telnetgmike/snappy-go/snappy"
 	"github.com/codeskyblue/pngdiff"
 	"golang.org/x/image/bmp"
 )

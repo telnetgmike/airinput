@@ -15,7 +15,7 @@ import (
 	"strconv"
 	"sync"
 
-	"code.google.com/p/graphics-go/graphics"
+	"github.com/telnetgmike/graphics-go/graphics"
 )
 
 var screenOnce = sync.Once{}
